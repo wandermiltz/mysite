@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Платы в работе</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    </head>
+    <body>
+        <div>
+            <h1>Платы в работе</h1>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+    					<th>Название платы</th>
+              <th>Количество</th>
+    					<th>Заказчик</th>
+    					<th>Код платы</th>
+    					<th>Код ревизии</th>
+    				</tr>
+            {% for pcb in pcbs %}
+
+            <tr>
+              <td class = 'pcb'> {{pcb.pcb_name}} </td>
+              <td class = 'quantity'> {{pcb.quantity}} </td>
+              <td class = 'customer'> {{pcb.customer}} </td>
+              <td> {{pcb.pcb_code}} </td>
+              <td> {{pcb.revision_code}} </td>
+             </tr>
+
+            {% endfor %}
+          </table>
+        </div>
+    </body>
+</html>
